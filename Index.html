@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Quiz Maker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+        }
+
+        textarea {
+            width: 100%;
+            height: 220px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #111;
+            color: white;
+            font-size: 16px;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+
+        .question {
+            background: #f4f6f8;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>AI Quiz Maker</h1>
+
+            <p class="subtitle">
+                Turn your study notes into a quiz.
+            </p>
+
+            <label for="notes">
+                Paste your notes
+            </label>
+
+            <textarea
+                id="notes"
+                placeholder="Paste your study notes here..."></textarea>
+
+            <button onclick="generateQuiz()">
+                Generate Quiz
+            </button>
+
+            <div id="result"></div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function generateQuiz() {
+
+            const notes =
+                document.getElementById("notes").value.trim();
+
+            const result =
+                document.getElementById("result");
+
+            if (notes === "") {
+
+                result.innerHTML =
+                    "<p>Please enter some notes first.</p>";
+
+                return;
+            }
+
+            result.innerHTML = `
+
+                <h2>Sample Quiz</h2>
+
+                <div class="question">
+                    <strong>Question 1</strong>
+                    <p>What is the main topic of your notes?</p>
+                </div>
+
+                <div class="question">
+                    <strong>Question 2</strong>
+                    <p>Which concept is most important in the provided notes?</p>
+                </div>
+
+                <div class="question">
+                    <strong>Question 3</strong>
+                    <p>Explain one important concept from your notes.</p>
+                </div>
+
+            `;
+        }
+
+    </script>
+
+</body>
+
+  </html>
